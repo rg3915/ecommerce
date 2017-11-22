@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from catalog.models import Category
 
 
 def index(request):
@@ -14,6 +15,10 @@ def index(request):
         'texts': texts
     }
     return render(request, 'index.html', context)
+
+
+def index(request):
+    return render(request, 'index.html')
 
 
 def contact(request):
