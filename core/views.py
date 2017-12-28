@@ -10,7 +10,7 @@ def index(request):
 
 def index(request):
     texts = ['Lorem ipsum dolor sit amet', 'consectetur adipisicing elit',
-             'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua']
+             'sed do eiusmod tempor incididunt ut labore et dolore magna.']
     context = {
         'title': 'django e-commerce',
         'texts': texts
@@ -23,6 +23,9 @@ def index(request):
 
 
 def contact(request):
-    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+    else:
+        form = ContactForm()
     context = {'form': form}
     return render(request, 'contact.html', context)
