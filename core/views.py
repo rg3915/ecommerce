@@ -26,13 +26,10 @@ def index(request):
 
 def contact(request):
     success = False
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.send_mail()
-            success = True
-    else:
-        form = ContactForm()
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        form.send_mail()
+        success = True
     context = {
         'form': form,
         'success': success
