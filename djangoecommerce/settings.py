@@ -11,6 +11,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
+EMAIL_BACKEND = config('EMAIL_BACKEND')
 
 # Application definition
 
@@ -105,6 +106,13 @@ USE_TZ = True
 USE_THOUSAND_SEPARATOR = True
 
 DECIMAL_SEPARATOR = ','
+
+
+# E-mail
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 
 # Static files (CSS, JavaScript, Images)
