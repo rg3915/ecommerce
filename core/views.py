@@ -29,16 +29,7 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
-            message = 'Nome: {0}\nE-mail:{1}\n{2}'.format(name, email, message)
-            send_mail(
-                'Contato do Django E-Commerce',
-                message,
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.DEFAULT_FROM_EMAIL]
-            )
+            form.send_mail()
             success = True
     else:
         form = ContactForm()
