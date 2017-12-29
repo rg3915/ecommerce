@@ -13,6 +13,7 @@ class ProductListView(generic.ListView):
     model = Product
     template_name = 'catalog/product_list.html'
     context_object_name = 'products'
+    paginate_by = 3
 
 product_list = ProductListView.as_view()
 
@@ -31,6 +32,7 @@ class CategoryListView(generic.ListView):
     model = Category
     template_name = 'catalog/category.html'
     context_object_name = 'product_list'
+    paginate_by = 3
 
     def get_queryset(self):
         # category = get_object_or_404(Category, slug=self.kwargs['slug'])
