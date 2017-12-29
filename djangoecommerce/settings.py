@@ -121,4 +121,5 @@ DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-LOGIN_URL = '/admin/login/'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index'
