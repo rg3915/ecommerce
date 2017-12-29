@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third apps
     'widget_tweaks',
+    'django_extensions',
     # my apps
     'accounts',
     'core',

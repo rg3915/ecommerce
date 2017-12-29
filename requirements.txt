@@ -1,5 +1,7 @@
 dj-database-url==0.4.2
 Django==1.11.7
+django-extensions==1.9.8
 django-widget-tweaks==1.4.1
+mixer==6.0.1
 model-mommy==1.4.0
 python-decouple==3.1

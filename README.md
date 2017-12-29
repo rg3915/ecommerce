@@ -16,6 +16,14 @@ form.is_valid()
 form.errors
 ```
 
+### Populando o banco com [mixer](https://github.com/klen/mixer)
+
+```
+./manage.py shell_plus
+from mixer.backend.django import mixer
+mixer.cycle(5).blend(User)
+```
+
 ### Paginação
 
 ```
@@ -26,3 +34,4 @@ paginator.num_pages
 page_obj = paginator.page(2)
 page_obj.object_list
 ```
+
