@@ -2,6 +2,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.generic import View, TemplateView
 from catalog.models import Category
 from core.forms import ContactForm
 
@@ -29,7 +30,19 @@ class IndexView(object):
     def __call__(self, request):
         return render(request, 'index.html')
 
-index = IndexView()
+
+class IndexView(View):
+
+    def get(self, request):
+        return render(request, 'index.html')
+
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+
+# index = IndexView()
+index = IndexView.as_view()
 
 
 def contact(request):
