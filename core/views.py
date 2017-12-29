@@ -24,6 +24,14 @@ def index(request):
     return render(request, 'index.html')
 
 
+class IndexView(object):
+
+    def __call__(self, request):
+        return render(request, 'index.html')
+
+index = IndexView()
+
+
 def contact(request):
     success = False
     form = ContactForm(request.POST or None)
