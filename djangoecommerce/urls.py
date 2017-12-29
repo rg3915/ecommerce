@@ -12,12 +12,8 @@ urlpatterns = [
         {'template_name': 'login.html'},
         name='login'
     ),
-    url(
-        r'^sair/$',
-        logout,
-        {'next_page': 'index'},
-        name='logout'
-    ),
+    url(r'^sair/$', logout, {'next_page': 'index'}, name='logout'),
+    url(r'^registro/$', c.register, name='register'),
     url(r'^catalogo/', include('catalog.urls', namespace='catalog')),
     url(r'^admin/', admin.site.urls),
 ]
