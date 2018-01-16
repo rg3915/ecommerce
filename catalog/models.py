@@ -25,7 +25,7 @@ class Product(models.Model):
     slug = models.SlugField('identificador', max_length=100)
     category = models.ForeignKey('catalog.Category', verbose_name='categoria')
     description = models.TextField('descrição', blank=True)
-    price = models.DecimalField('preço', decimal_places=2, max_digits=10)
+    price = models.DecimalField('preço', decimal_places=2, max_digits=5)
     created = models.DateTimeField('criado em', auto_now_add=True)
     modified = models.DateTimeField('modificado em', auto_now=True)
 

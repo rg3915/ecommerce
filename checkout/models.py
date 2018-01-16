@@ -23,7 +23,7 @@ class CartItem(models.Model):
     )
     product = models.ForeignKey('catalog.Product', verbose_name='Produto')
     quantity = models.PositiveIntegerField('Quantidade', default=1)
-    price = models.DecimalField('Preço', decimal_places=2, max_digits=8)
+    price = models.DecimalField('Preço', decimal_places=2, max_digits=5)
 
     objects = CartItemManager()
 
