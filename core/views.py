@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.mail import send_mail
@@ -56,6 +57,8 @@ def contact(request):
     if form.is_valid():
         form.send_mail()
         success = True
+    elif request.method == 'POST':
+        messages.error(request, 'Formulário inválido')
     context = {
         'form': form,
         'success': success
