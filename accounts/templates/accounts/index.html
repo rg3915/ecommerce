@@ -16,7 +16,9 @@
         </div>
     </div>
     <div class="col-md-8">
-        <h2>Bem vindo {{ request.user.get_full_name }}</h2>
+        {% block accounts_container %}
+          <h2>Bem vindo {{ request.user.get_full_name }}</h2>
+        {% endblock accounts_container %}
     </div>
 </div>
 {% endblock %}
