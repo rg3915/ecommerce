@@ -28,6 +28,9 @@ Carrinho de Compras
                         Nome
                     </th>
                     <th>
+                        Categoria
+                    </th>
+                    <th>
                         Preço
                     </th>
                     <th style="width: 10%;">
@@ -45,6 +48,9 @@ Carrinho de Compras
                         </td>
                         <td>
                             {{ form.instance.product }}
+                        </td>
+                        <td>
+                            {{ form.instance.product.category }}
                         </td>
                         <td>
                             R$ {{ form.instance.price|floatformat:"2" }}

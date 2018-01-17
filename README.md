@@ -21,7 +21,12 @@ form.errors
 ```
 ./manage.py shell_plus
 from mixer.backend.django import mixer
+from django.utils.text import slugify
 mixer.cycle(5).blend(User)
+categories = ['Cursos', 'Livros', 'Videos']
+for category in categories:
+    cat = Category.objects.create(name=category, slug=slugify(category))
+    mixer.cycle(5).blend(Product, category=cat)
 ```
 
 ### Paginação
