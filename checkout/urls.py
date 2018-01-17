@@ -8,5 +8,6 @@ urlpatterns = [
         views.create_cartitem,
         name='create_cartitem'
     ),
-    url(r'^carrinho/$', views.cart_item, name='cart_item')
+    url(r'^carrinho/$', views.cart_item, name='cart_item'),
+    url(r'^finalizando/$', views.checkout, name='checkout')
 ]
