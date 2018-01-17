@@ -35,3 +35,14 @@ page_obj = paginator.page(2)
 page_obj.object_list
 ```
 
+
+### Formset Factory
+
+```
+from checkout.models import CartItem
+from django.forms import modelformset_factory
+CartItemFormSet = modelformset_factory(CartItem, fields=['quantity'], extra=0, can_delete=True)
+formset = CartItemFormSet(queryset=CartItem.objects.all())
+form = formset[0]
+print(formset)
+```
