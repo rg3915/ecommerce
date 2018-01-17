@@ -77,6 +77,20 @@ class Order(models.Model):
         return 'Pedido #{}'.format(self.pk)
 
 
+class OrderManager(models.Manager):
+
+    def create_order(self, user, cart_items):
+        order = self.create(user=user)
+        for cart_item in cart_items:
+            order_item = OrderItem.objects.create(
+                order=order,
+                quantity=cart_item.quantity,
+                product=cart_item.product,
+                price=cart_item.price
+            )
+        return order
+
+
 class OrderItem(models.Model):
     order = models.ForeignKey(
         Order,
