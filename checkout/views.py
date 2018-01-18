@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse
 from django.forms import modelformset_factory
 from django.shortcuts import get_object_or_404, redirect
-from django.views.generic import RedirectView, TemplateView
+from django.views.generic import RedirectView, TemplateView, ListView
 
 from catalog.models import Product
 from .models import CartItem, Order
@@ -86,3 +86,15 @@ class CheckoutView(LoginRequiredMixin, TemplateView):
 
 
 checkout = CheckoutView.as_view()
+
+
+class OrderListView(LoginRequiredMixin, ListView):
+
+    template_name = 'checkout/order_list.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Order.objects.filter(user=self.request.user)
+
+
+order_list = OrderListView.as_view()

@@ -41,7 +41,7 @@ class CheckoutViewTestCase(TestCase):
         self.client = Client()
         self.checkout_url = reverse('checkout:checkout')
 
-    def test_checkou_view(self):
+    def test_checkout_view(self):
         response = self.client.get(self.checkout_url)
         redirect_url = '{}?next={}'.format(
             reverse(settings.LOGIN_URL), self.checkout_url
